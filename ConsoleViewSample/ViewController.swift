@@ -9,18 +9,32 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet weak var testerText: NSTextField!
+    
+    @IBAction func testPrint(_ sender: Any) {
+        
+        let textToPrint = testerText.stringValue
+        print(textToPrint)
+    }
+    @IBAction func toggleConsole(_ sender: Any) {
+        ConsoleManager.toggleConsole()
+    }
+    
+    @IBAction func testExit(_ sender: Any) {
+        NSApplication.shared.terminate(self)
+    }
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print("Does printing to console work?")
+        ConsoleManager.setActive() // Initialize Console Print System
+        print("Does printing to console work now?")
+        print("Yeah Baby!")
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
 
 }
+
 

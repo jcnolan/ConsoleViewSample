@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ConsoleViewSample" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,11 +705,102 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="ConsoleViewSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="JrN-pK-Z27">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="158" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BOe-AG-CbN">
+                                <rect key="frame" x="40" y="30" width="400" height="231"/>
+                                <subviews>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5EI-F8-2jn">
+                                        <rect key="frame" x="0.0" y="71" width="400" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160" id="ZNK-rn-56v"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Hello World..." drawsBackground="YES" id="5ob-ha-kmw">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ikP-Ws-nCE">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="21"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QCx-Ox-QUb">
+                                                <rect key="frame" x="-6" y="-7" width="140" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Copy to Console" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Tdq-6L-QWa">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="testPrint:" target="XfG-lQ-9wD" id="uaj-Nq-NgI"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qKx-i6-lb8">
+                                                <rect key="frame" x="130" y="-7" width="140" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Toggle Console" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iIl-dQ-M8P">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="toggleConsole:" target="XfG-lQ-9wD" id="k1M-2Y-GXr"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wj0-mE-OkS">
+                                                <rect key="frame" x="266" y="-7" width="140" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Exit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="c0k-4Y-hIC">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="testExit:" target="XfG-lQ-9wD" id="75T-z6-ry3"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="wj0-mE-OkS" firstAttribute="width" secondItem="QCx-Ox-QUb" secondAttribute="width" id="Fy6-oK-1by"/>
+                                            <constraint firstItem="qKx-i6-lb8" firstAttribute="width" secondItem="QCx-Ox-QUb" secondAttribute="width" id="wpy-P5-QEB"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ikP-Ws-nCE" firstAttribute="top" secondItem="5EI-F8-2jn" secondAttribute="bottom" constant="20" id="LFl-jq-Znn"/>
+                                    <constraint firstAttribute="trailing" secondItem="5EI-F8-2jn" secondAttribute="trailing" id="Xtd-BM-ItM"/>
+                                    <constraint firstAttribute="bottom" secondItem="ikP-Ws-nCE" secondAttribute="bottom" id="abK-fa-EFA"/>
+                                    <constraint firstItem="5EI-F8-2jn" firstAttribute="leading" secondItem="BOe-AG-CbN" secondAttribute="leading" id="bgP-be-tDP"/>
+                                    <constraint firstItem="5EI-F8-2jn" firstAttribute="top" secondItem="BOe-AG-CbN" secondAttribute="top" id="zDX-hP-yWB"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="BOe-AG-CbN" firstAttribute="top" secondItem="JrN-pK-Z27" secondAttribute="top" constant="39" id="Ocz-xh-4pR"/>
+                            <constraint firstAttribute="bottom" secondItem="BOe-AG-CbN" secondAttribute="bottom" constant="30" id="Oo9-zs-gzA"/>
+                            <constraint firstAttribute="trailing" secondItem="BOe-AG-CbN" secondAttribute="trailing" constant="40" id="OsC-kT-lus"/>
+                            <constraint firstItem="BOe-AG-CbN" firstAttribute="leading" secondItem="JrN-pK-Z27" secondAttribute="leading" constant="40" id="rb5-p6-TR9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="testerText" destination="5EI-F8-2jn" id="ier-Kx-Z0H"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
