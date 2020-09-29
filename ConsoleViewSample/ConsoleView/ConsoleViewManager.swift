@@ -36,33 +36,34 @@ public func print(_ items: Any..., separator: String = " ", terminator: String =
 
 /// -------------------------------------------------------------------------------------------------
 
+protocol ConsoleManagerViewController: class {
+    
+    func writeToDebugConsole( _ destinationText:String)
+}
+
 class ConsoleManager {
     
-    static private var myWindowController: NSWindowController? = nil
-    static private var consoleTextView: NSTextView? = nil
-    static private var consoleView: ConsoleViewController? = nil
+    static private var consoleWindowCtrl: NSWindowController? = nil
+    static private var consoleViewCtrl: ConsoleViewController? = nil
   
     static public  var isActive: Bool {
-        get { myWindowController != nil }
+        get { consoleWindowCtrl != nil }
     }
     static public  var isShowing: Bool {
-        get { myWindowController!.window!.isVisible == true }
+        get { consoleWindowCtrl!.window!.isVisible == true }
     }
     
     static func setActive() {
         
         // External Entry: Initialze System / Turn It On - Must be Called in Application Init to Start System Working
         
-        if myWindowController == nil {
+        if consoleWindowCtrl == nil {
             
             let myStoryboard = NSStoryboard(name: "ConsoleView", bundle: nil)
-            myWindowController = myStoryboard.instantiateController(withIdentifier: "DebugWindow") as? NSWindowController
+            consoleWindowCtrl = myStoryboard.instantiateController(withIdentifier: "DebugWindow") as? NSWindowController
             
-            guard myWindowController != nil else {return}
-            consoleView = myWindowController!.window!.contentViewController as? ConsoleViewController
-            
-            guard consoleView != nil else {return}
-            consoleTextView = consoleView!.consoleTextView
+            guard consoleWindowCtrl != nil else {return}
+            consoleViewCtrl = consoleWindowCtrl!.window!.contentViewController as? ConsoleViewController
         }
     }
     
@@ -70,9 +71,9 @@ class ConsoleManager {
 
         // External Entry: Disable System / Turn It Off
 
-        if let myWindowController = myWindowController {
+        if let myWindowController = consoleWindowCtrl {
             myWindowController.close()
-            self.myWindowController = nil
+            self.consoleWindowCtrl = nil
         }
     }
     
@@ -88,8 +89,8 @@ class ConsoleManager {
         
         // External Entry: Show Console View, Activating if Necessary
         
-        if myWindowController == nil {ConsoleManager.setActive()}
-        if let myWindowController = myWindowController {
+        if consoleWindowCtrl == nil {ConsoleManager.setActive()}
+        if let myWindowController = consoleWindowCtrl {
             myWindowController.showWindow(self)
         }
     }
@@ -98,7 +99,7 @@ class ConsoleManager {
 
         // External Entry: Hide Console View, But Do Not Deactivate
         
-        if let myWindowController = myWindowController {
+        if let myWindowController = consoleWindowCtrl {
             myWindowController.window!.orderOut(self)
         }
     }
@@ -107,7 +108,13 @@ class ConsoleManager {
         
         // External Entry: Print to the Debug Console, w/out Printing to the System Console
         
-        ConsoleManager.consoleView!.writeToDebugConsole(output)
+        // TODO - Interesting connundrum here... do we put the write external or
+        //        instead have it local and require a NSTextView reference in the Protocol?
+        //        External allows the class to really do whatever the heck they want with
+        //        the string (display, write to database, forward to another source)
+        //        but putting the write here simplifies things binding wise (does it?)
+        
+        ConsoleManager.consoleViewCtrl!.writeToDebugConsole(output)
     }
 }
 

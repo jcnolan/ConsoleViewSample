@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <Group
-      location = "group:/Users/jcnolan/Projects/Swift/github/ConsoleViewSample/ConsoleViewSample/ConsoleView"
-      name = "ConsoleView">
-      <FileRef
-         location = "group:ConsoleView.storyboard">
-      </FileRef>
-      <FileRef
-         location = "group:ConsoleView.storyboard.bak">
-      </FileRef>
-      <FileRef
-         location = "group:ConsoleViewController.swift">
-      </FileRef>
-      <FileRef
-         location = "group:ConsoleViewManager.swift">
-      </FileRef>
-   </Group>
    <FileRef
       location = "self:">
    </FileRef>

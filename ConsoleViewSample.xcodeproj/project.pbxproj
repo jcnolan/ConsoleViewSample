@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		89EBC2A62522E1BF003C4B84 /* ConsoleView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89EBC2A22522E1BF003C4B84 /* ConsoleView.storyboard */; };
-		89EBC2A72522E1BF003C4B84 /* ConsoleView.storyboard.bak in Resources */ = {isa = PBXBuildFile; fileRef = 89EBC2A32522E1BF003C4B84 /* ConsoleView.storyboard.bak */; };
 		89EBC2A82522E1BF003C4B84 /* ConsoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBC2A42522E1BF003C4B84 /* ConsoleViewController.swift */; };
 		89EBC2A92522E1BF003C4B84 /* ConsoleViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EBC2A52522E1BF003C4B84 /* ConsoleViewManager.swift */; };
 		89F636F42522DE52003961F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F636F32522DE52003961F6 /* AppDelegate.swift */; };
@@ -38,7 +37,6 @@
 
 /* Begin PBXFileReference section */
 		89EBC2A22522E1BF003C4B84 /* ConsoleView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConsoleView.storyboard; sourceTree = "<group>"; };
-		89EBC2A32522E1BF003C4B84 /* ConsoleView.storyboard.bak */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ConsoleView.storyboard.bak; sourceTree = "<group>"; };
 		89EBC2A42522E1BF003C4B84 /* ConsoleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleViewController.swift; sourceTree = "<group>"; };
 		89EBC2A52522E1BF003C4B84 /* ConsoleViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleViewManager.swift; sourceTree = "<group>"; };
 		89F636F02522DE52003961F6 /* ConsoleViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConsoleViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				89EBC2A22522E1BF003C4B84 /* ConsoleView.storyboard */,
-				89EBC2A32522E1BF003C4B84 /* ConsoleView.storyboard.bak */,
 				89EBC2A42522E1BF003C4B84 /* ConsoleViewController.swift */,
 				89EBC2A52522E1BF003C4B84 /* ConsoleViewManager.swift */,
 			);
@@ -250,7 +247,6 @@
 				89F636F82522DE53003961F6 /* Assets.xcassets in Resources */,
 				89EBC2A62522E1BF003C4B84 /* ConsoleView.storyboard in Resources */,
 				89F636FB2522DE53003961F6 /* Main.storyboard in Resources */,
-				89EBC2A72522E1BF003C4B84 /* ConsoleView.storyboard.bak in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

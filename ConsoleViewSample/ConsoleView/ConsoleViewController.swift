@@ -8,9 +8,9 @@
 
 import Cocoa
 
-class ConsoleViewController: NSViewController {
+class ConsoleViewController: NSViewController, ConsoleManagerViewController {
 
-    @IBOutlet weak var consoleView: NSScrollView!
+    @IBOutlet weak var consoleScrollView: NSScrollView!
     @IBOutlet weak var consoleTextView: NSTextView!
     
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class ConsoleViewController: NSViewController {
         }
     }
     
-    public func writeToDebugConsole( _ destinationText:String)  { consoleView.documentView!.insertText(destinationText) }
+    public func writeToDebugConsole( _ destinationText:String)  { consoleScrollView.documentView!.insertText(destinationText) }
     
     @IBAction func clear(_ sender: Any)                         { consoleTextView.string = "" }
     @IBAction func cancel(_ sender: Any)                        { ConsoleManager.hideConsole() }

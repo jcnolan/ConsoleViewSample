@@ -34,7 +34,7 @@
         <!--Console View Controller-->
         <scene sceneID="Amw-IE-A6f">
             <objects>
-                <viewController id="8JN-sf-5lf" customClass="ConsoleViewController" customModule="DebugConsole" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8JN-sf-5lf" customClass="ConsoleViewController" customModule="ConsoleViewSample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="abo-jk-l5Q">
                         <rect key="frame" x="0.0" y="0.0" width="1058" height="624"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -153,8 +153,8 @@ Gw
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="consoleScrollView" destination="fSu-et-rgH" id="EmH-24-NWA"/>
                         <outlet property="consoleTextView" destination="DRd-fQ-6dr" id="fCX-0n-4Vt"/>
-                        <outlet property="consoleView" destination="fSu-et-rgH" id="weN-Es-OHz"/>
                     </connections>
                 </viewController>
                 <customObject id="lO3-Dh-ch3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
