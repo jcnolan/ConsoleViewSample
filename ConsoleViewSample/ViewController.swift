@@ -29,10 +29,15 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
         print("Does printing to console work?")
+        
         ConsoleManager.setActive() // Initialize Console Print System
+        
         print("Does printing to console work now?")
         print("Yeah Baby!")
+        
+        Swift.print("But this one still prints only in the system console...")
     }
 
 }
